@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div class="w-full h-screen flex justify-center items-center">
+        <div class="w-80 border border-gray-300 shadow-md rounded-md bg-gray-900 text-white p-3">
+            <div class="flex justify-between items-center ">
+                <h1 class="font-bold">Calc</h1>
+                <div>
+                    <span class="font-medium">Theme</span>
+                </div>
+            </div>
+            <div class="py-5">
+                <input id="outputScreen" class="w-full h-[50px] rounded-md outline-none text-black text-xl p-2" type="text" placeholder="0">
+            </div>
+            <div class="w-full">
+                <div class="w-full flex justify-center">
+                    <button onclick="display('7')" class="bg-white text-black px-6 py-3 rounded-full font-bold text-2xl hover:scale-105 duration-300">7</button>
+                    <button onclick="display('8')"  class="bg-white text-black px-6 py-3  rounded-full ml-2.5 font-bold text-2xl hover:scale-105 duration-300">8</button>
+                    <button onclick="display('9')" class="bg-white text-black px-6 py-3  rounded-full ml-2.5 font-bold text-2xl hover:scale-105 duration-300">9</button>
+                    <button onclick="del()" class="bg-white text-black px-[14px] py-3  rounded-full ml-2.5 font-bold text-2xl hover:scale-105 duration-300">Del</button>
+                </div>
+                <div class="w-full flex justify-center py-3 ">
+                    <button onclick="display('4')" class="bg-white text-black px-6 py-3 rounded-full font-bold text-2xl hover:scale-105 duration-300">4</button>
+                    <button onclick="display('5')" class="bg-white text-black px-6 py-3  rounded-full ml-2.5 font-bold text-2xl hover:scale-105 duration-300">5</button>
+                    <button onclick="display('6')" class="bg-white text-black px-6 py-3  rounded-full ml-2.5 font-bold text-2xl hover:scale-105 duration-300">6</button>
+                    <button onclick="display('-')" class="bg-white text-black px-[26px] py-3  rounded-full ml-2.5 font-bold text-2xl">-</button>
+                </div>
+                <div class="w-full flex justify-center pb-3">
+                    <button onclick="display('1')" class="bg-white text-black px-6 py-3 rounded-full font-bold text-2xl hover:scale-105 duration-300">1</button>
+                    <button onclick="display('2')" class="bg-white text-black px-6 py-3  rounded-full ml-2.5 font-bold text-2xl hover:scale-105 duration-300">2</button>
+                    <button onclick="display('3')" class="bg-white text-black px-6 py-3  rounded-full ml-2.5 font-bold text-2xl hover:scale-105 duration-300">3</button>
+                    <button onclick="display('+')" class="bg-white text-black px-[22px] py-3  rounded-full ml-2.5 font-bold text-2xl hover:scale-105 duration-300">+</button>
+                </div>
+                <div class="w-full flex justify-center pb-3">
+                    <button onclick="display('.')" class="bg-white text-black px-7 py-3. rounded-full font-bold text-2xl hover:scale-105 duration-300">.</button>
+                    <button onclick="display('0')" class="bg-white text-black px-6 py-3  rounded-full ml-2.5 font-bold text-2xl hover:scale-105 duration-300">0</button>
+                    <button onclick="display('/')" class="bg-white text-black px-6 py-3  rounded-full ml-2.5 font-bold text-2xl hover:scale-105 duration-300">/</button>
+                    <button onclick="display('*')" class="bg-white text-black px-[22px] py-3  rounded-full ml-2.5 font-bold text-2xl hover:scale-105 duration-300">x</button>
+                </div>
+                <div class="w-full flex justify-center">
+                    <div class="w-full flex justify-between ">
+                        <button onclick="reset()" class=" w-1/2 bg-white text-black px-6 py-2  rounded-md ml-2.5 font-bold hover:scale-105 duration-300 ">Reset</button>
+                        <button onclick="calculate()" class=" bg-white text-black px-12 py-2  rounded-md ml-2.5 font-bold  hover:scale-105 duration-300 text-2xl">=</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <script>
+            var outputscreen = document.getElementById("outputScreen");
+            function display (num) {
+                
+                console.log(num)
+                outputscreen.value += num;
+            }
+            function calculate () {
+                outputscreen.value = eval(outputscreen.value)
+            }
+
+            function reset () {
+                outputscreen.value = '';
+            }
+
+            function del () {
+                outputscreen.value = outputscreen.value.slice(0 , -1)
+            }
+
+            
+        </script>
+    </div>
+</body>
+</html>
